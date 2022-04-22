@@ -1,7 +1,7 @@
 import { Button, TextField } from "@mui/material";
 import React from "react";
 import { useTheme } from "styled-components";
-import { ForegroundContainer, TopBar } from "../../components";
+import { ForegroundContainer, LoadingSpinner, TopBar } from "../../components";
 import { Container, HintText } from "./styles";
 
 interface JoinGameViewProps {
@@ -9,13 +9,15 @@ interface JoinGameViewProps {
   onChange: (text: string) => void;
   value: string;
   disabled?: boolean;
+  loading?: boolean;
 }
 
 export const JoinGameView: React.FC<JoinGameViewProps> = ({
   onJoinClick,
   onChange,
   value,
-  disabled
+  disabled,
+  loading,
 }) => {
   const { padding } = useTheme();
 
@@ -37,7 +39,7 @@ export const JoinGameView: React.FC<JoinGameViewProps> = ({
           variant="contained"
           onClick={onJoinClick}
         >
-          Join a game
+          {loading ? <LoadingSpinner size={15} /> : "Join a game"}
         </Button>
       </Container>
     </ForegroundContainer>

@@ -1,4 +1,3 @@
-import { Button, TextField } from "@mui/material";
 import React, { useState } from "react";
 
 import { useHistory } from "react-router-dom";
@@ -35,6 +34,7 @@ export const JoinGame: React.FC = () => {
       value={value}
       onChange={onFieldChange}
       onJoinClick={onJoinClick}
+      loading={loading}
       disabled={value.length < 3}
     />
   );

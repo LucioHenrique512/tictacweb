@@ -4,7 +4,6 @@ import { getNewGame } from "../../services/api";
 import { WellcomeView } from "./view";
 import { toast } from "react-toastify";
 import { useTicTacContext } from "../../context";
-import { GameType } from "../../types/gameTypes";
 
 export const Wellcome: React.FC = () => {
   const { push } = useHistory();
