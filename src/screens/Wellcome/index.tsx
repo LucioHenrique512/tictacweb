@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { getNewGame } from "../../services/api";
 import { WellcomeView } from "./view";
+import { toast } from "react-toastify";
 
 export const Wellcome: React.FC = () => {
   const { push } = useHistory();
@@ -16,12 +17,14 @@ export const Wellcome: React.FC = () => {
       //push("/board");
     } catch (error) {
       setLoading(false);
-      console.log("deu erro", error);
+      toast("Error to conect to the server", { type: "error" });
+
+      console.log("erro ->", error);
     }
   };
 
   const onJoinGameClick = () => {
-    push("/join");
+    //push("/join");
   };
 
   return (

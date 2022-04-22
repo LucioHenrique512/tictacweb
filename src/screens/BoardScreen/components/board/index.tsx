@@ -1,4 +1,4 @@
-import styled, { useTheme } from "styled-components";
+import { useTheme } from "styled-components";
 import { MdOutlineCircle, MdOutlineClose } from "react-icons/md";
 import {
   Container,
