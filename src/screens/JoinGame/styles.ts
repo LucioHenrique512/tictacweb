@@ -5,3 +5,8 @@ export const Container = styled.div`
   flex-direction: column;
 `;
 
+export const HintText = styled.p`
+  margin: ${({ theme }) => theme.padding.MD}px 0px;
+  color: ${({ theme }) => theme.colors.primary};
+  font-size: ${({ theme }) => theme.fontSize.SM}rem;
+`;

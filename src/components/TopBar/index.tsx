@@ -20,7 +20,6 @@ export const TopBar: React.FC<TopBarProps> = ({ text }) => {
 };
 
 export const Container = styled.header`
-  margin-bottom: ${({ theme }) => theme.padding.MD}px;
   display: flex;
   flex-direction: row;
   align-items: center;

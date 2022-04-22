@@ -2,8 +2,7 @@ import { Button, IconButton, TextField } from "@mui/material";
 import React from "react";
 import { useTheme } from "styled-components";
 import { ForegroundContainer, TopBar } from "../../components";
-import { Container } from "./styles";
-import { MdArrowBack } from "react-icons/md";
+import { Container, HintText } from "./styles";
 import { useHistory } from "react-router-dom";
 
 export const JoinGame: React.FC = () => {
@@ -13,6 +12,7 @@ export const JoinGame: React.FC = () => {
     <ForegroundContainer>
       <Container>
         <TopBar />
+        <HintText>Type or paste your game code below</HintText>
         <TextField
           variant="outlined"
           label="game code"
