@@ -36,3 +36,8 @@ export const ItemButton = styled(ButtonBase)`
   height: 100%;
   width: 100%;
 `;
+
+export const IconContainer = styled.div`
+height: ${({theme})=>theme.fontSize.MD}rem;
+width: ${({theme})=>theme.fontSize.MD}rem;
+`

@@ -10,15 +10,22 @@ import {
 } from "./styles";
 import { Button } from "@mui/material";
 import { MdContentCopy } from "react-icons/md";
+import { BoardType } from "../../types/gameTypes";
+
+export type onBoardPress = (rowIndex:number,itemIndex:number) => void;
 
 interface BoardScreenViewProps {
   onCopyPress: () => void;
   gameCode?: string;
+  board: BoardType;
+  onBoardPress: onBoardPress;
 }
 
 export const BoardScreenView: React.FC<BoardScreenViewProps> = ({
   onCopyPress,
   gameCode,
+  board,
+  onBoardPress
 }) => {
   const { padding, colors, fontSize } = useTheme();
 
@@ -38,7 +45,7 @@ export const BoardScreenView: React.FC<BoardScreenViewProps> = ({
         </ButtonContainer>
 
         <ContentContainer>
-          <Board />
+          <Board board={board} onBoardPress={onBoardPress} />
           <Score />
         </ContentContainer>
         <Button fullWidth variant="contained" style={{ marginTop: padding.MD }}>
