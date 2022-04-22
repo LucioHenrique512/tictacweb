@@ -1,24 +1,19 @@
-import { Button } from "@mui/material";
-import { useTheme } from "styled-components";
-import { ForegroundContainer, TopBar } from "../../components";
-import { Board } from "./components/board";
-import { Score } from "./components/score";
-import { Container, ContentContainer } from "./styles";
+import { useTicTacContext } from "../../context";
+import { BoardScreenView } from "./view";
+import { toast } from "react-toastify";
 
 export const BoardScreen: React.FC = () => {
-  const { padding } = useTheme();
-  return (
-    <ForegroundContainer>
-      <Container>
-        <TopBar text="Gamecode: #eba12548" />
-        <ContentContainer>
-          <Board />
-          <Score />
-        </ContentContainer>
-        <Button fullWidth variant="contained" style={{ marginTop: padding.MD }}>
-          Reset game
-        </Button>
-      </Container>
-    </ForegroundContainer>
-  );
+  const { game } = useTicTacContext();
+
+  const onCopyPress = () => {
+    if (!!game?.id) {
+      const gameCode = game?.id ?? "";
+      navigator.clipboard.writeText(gameCode);
+      toast(`Copied, send it to the second player! code:${gameCode}`, {
+        type: "info",
+      });
+    }
+  };
+
+  return <BoardScreenView onCopyPress={onCopyPress} gameCode={game?.id} />;
 };

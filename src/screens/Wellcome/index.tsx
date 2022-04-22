@@ -3,28 +3,30 @@ import { useHistory } from "react-router-dom";
 import { getNewGame } from "../../services/api";
 import { WellcomeView } from "./view";
 import { toast } from "react-toastify";
+import { useTicTacContext } from "../../context";
+import { GameType } from "../../types/gameTypes";
 
 export const Wellcome: React.FC = () => {
   const { push } = useHistory();
   const [loading, setLoading] = useState<boolean>();
+  const { setGame } = useTicTacContext();
 
   const onCreateNewGameClick = async () => {
     try {
       setLoading(true);
-      const response = await getNewGame();
+      const { data } = await getNewGame();
       setLoading(false);
-      console.log("game->", response.data.board);
+      setGame(data);
       push("/board");
-    } catch (error) {
+    } catch (error: any) {
       setLoading(false);
-      toast("Error to conect to the server", { type: "error" });
-
-      console.log("erro ->", error);
+      const message = error.response?.data?.message;
+      toast(message ?? "Error connecting to server", { type: "error" });
     }
   };
 
   const onJoinGameClick = () => {
-    //push("/join");
+    push("/join");
   };
 
   return (

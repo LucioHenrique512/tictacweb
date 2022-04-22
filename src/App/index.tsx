@@ -13,7 +13,6 @@ function App() {
   return (
     <React.Fragment>
       <ToastContainer />
-
       <ThemeProvider theme={light}>
         <MuiThemeProvider theme={muiThemeLight}>
           <GlobalStyle />
