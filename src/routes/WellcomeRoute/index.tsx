@@ -1,5 +1,5 @@
 import { Wellcome } from "../../screens/";
 
-export const WellcomeRoute: any = () => {
+export const WellcomeRoute = () => {
   return <Wellcome />;
 };

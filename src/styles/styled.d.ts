@@ -7,6 +7,11 @@ declare module "styled-components" {
       LG: number;
     };
     borderRadius: number;
+    fontSize: {
+      SM: number;
+      MD: number;
+      LG: number;
+    };
     colors: {
       primary: string;
       secondary: string;

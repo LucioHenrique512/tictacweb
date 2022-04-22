@@ -8,6 +8,11 @@ export const light: DefaultTheme = {
     LG: 35,
   },
   borderRadius: 8,
+  fontSize: {
+    SM: 1,
+    MD: 2,
+    LG: 3,
+  },
   colors: {
     background: "#F4F4F4",
     primary: "#000000",

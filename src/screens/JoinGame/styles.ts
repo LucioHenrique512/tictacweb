@@ -5,6 +5,3 @@ export const Container = styled.div`
   flex-direction: column;
 `;
 
-export const Header = styled.header`
-  margin-bottom: ${({ theme }) => theme.padding.MD}px;
-`;

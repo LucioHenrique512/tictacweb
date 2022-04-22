@@ -11,7 +11,7 @@ export const Container = styled.div`
 
 export const AppName = styled.h1`
   font-weight: 200;
-  font-size: 3rem;
+  font-size: ${({ theme }) => theme.fontSize.MD}rem;
   color: ${({ theme }) => theme.colors.primary};
   margin-bottom: 1rem;
   span {

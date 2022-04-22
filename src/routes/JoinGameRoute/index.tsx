@@ -1,5 +1,5 @@
 import { JoinGame } from "../../screens";
 
-export const JoinGameRoute: any = () => {
+export const JoinGameRoute = () => {
   return <JoinGame />;
 };

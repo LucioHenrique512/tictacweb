@@ -15,6 +15,9 @@ export const Wellcome: React.FC = () => {
           size="large"
           variant="contained"
           style={{ marginBottom: padding.MD }}
+          onClick={() => {
+            push("/board");
+          }}
         >
           Create a new game
         </Button>
