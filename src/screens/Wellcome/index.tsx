@@ -1,36 +1,34 @@
-import { Button } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { useTheme } from "styled-components";
-import { ForegroundContainer } from "../../components";
-import { Container } from "./styles";
+import { getNewGame } from "../../services/api";
+import { WellcomeView } from "./view";
 
 export const Wellcome: React.FC = () => {
-  const { padding } = useTheme();
   const { push } = useHistory();
+  const [loading, setLoading] = useState<boolean>();
+
+  const onCreateNewGameClick = async () => {
+    try {
+      setLoading(true);
+      const response = await getNewGame();
+      setLoading(false);
+      console.log("game->", response.data.board);
+      //push("/board");
+    } catch (error) {
+      setLoading(false);
+      console.log("deu erro", error);
+    }
+  };
+
+  const onJoinGameClick = () => {
+    push("/join");
+  };
+
   return (
-    <ForegroundContainer>
-      <Container>
-        <Button
-          size="large"
-          variant="contained"
-          style={{ marginBottom: padding.MD }}
-          onClick={() => {
-            push("/board");
-          }}
-        >
-          Create a new game
-        </Button>
-        <Button
-          size="large"
-          variant="outlined"
-          onClick={() => {
-            push("/join");
-          }}
-        >
-          Join a game
-        </Button>
-      </Container>
-    </ForegroundContainer>
+    <WellcomeView
+      onCreateNewGameClick={onCreateNewGameClick}
+      onJoinGameClick={onJoinGameClick}
+      loading={loading}
+    />
   );
 };

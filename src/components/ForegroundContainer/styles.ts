@@ -6,4 +6,5 @@ export const Container = styled.div`
   border-radius: ${({ theme }) => theme.borderRadius}px;
   box-shadow: 0px 0px 25px 10px rgba(0, 0, 0, 0.1);
   transition: 0.2s;
+  min-width: 350px;
 `;
