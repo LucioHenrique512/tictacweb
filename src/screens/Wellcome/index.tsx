@@ -14,7 +14,7 @@ export const Wellcome: React.FC = () => {
       const response = await getNewGame();
       setLoading(false);
       console.log("game->", response.data.board);
-      //push("/board");
+      push("/board");
     } catch (error) {
       setLoading(false);
       toast("Error to conect to the server", { type: "error" });

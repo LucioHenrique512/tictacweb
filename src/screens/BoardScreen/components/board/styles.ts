@@ -10,7 +10,11 @@ export const Container = styled.div`
   overflow: hidden;
 `;
 
-export const BoardContainer = styled.div``;
+export const BoardContainer = styled.div`
+  justify-content: center;
+  align-items: center;
+  display: flex;
+`;
 
 export const BoardList = styled.ul`
   list-style: none;
