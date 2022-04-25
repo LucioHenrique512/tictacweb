@@ -1,5 +1,5 @@
-import { createContext, useContext, useState } from "react";
-import { GameType } from "../types/gameTypes";
+import { createContext, useContext, useEffect, useState } from "react";
+import { GameType, PlayerType } from "../types/gameTypes";
 import { TicTacContextType } from "./type";
 
 type ContextProviderProps = {
@@ -12,8 +12,11 @@ export const TicTacContextProvider: React.FC<ContextProviderProps> = ({
   children,
 }) => {
   const [game, setGame] = useState<GameType>();
+  const [playerType, setPlayerType] = useState<PlayerType>();
   return (
-    <Context.Provider value={{ game, setGame }}>{children}</Context.Provider>
+    <Context.Provider value={{ game, setGame, playerType, setPlayerType }}>
+      {children}
+    </Context.Provider>
   );
 };
 

@@ -10,7 +10,7 @@ export const JoinGame: React.FC = () => {
   const { push } = useHistory();
   const [value, setValue] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
-  const { setGame } = useTicTacContext();
+  const { setGame, setPlayerType } = useTicTacContext();
 
   const onFieldChange = (text: string) => setValue(text.trim());
 
@@ -21,6 +21,7 @@ export const JoinGame: React.FC = () => {
       setLoading(false);
       setGame(data);
       toast(`Connected! code: ${data.id}`, { type: "success" });
+      setPlayerType(1);
       push("/board");
     } catch (error: any) {
       setLoading(false);

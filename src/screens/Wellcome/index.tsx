@@ -8,7 +8,7 @@ import { useTicTacContext } from "../../context";
 export const Wellcome: React.FC = () => {
   const { push } = useHistory();
   const [loading, setLoading] = useState<boolean>();
-  const { setGame } = useTicTacContext();
+  const { setGame, setPlayerType } = useTicTacContext();
 
   const onCreateNewGameClick = async () => {
     try {
@@ -16,6 +16,7 @@ export const Wellcome: React.FC = () => {
       const { data } = await getNewGame();
       setLoading(false);
       setGame(data);
+      setPlayerType(0);
       push("/board");
     } catch (error: any) {
       setLoading(false);

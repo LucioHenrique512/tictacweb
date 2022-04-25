@@ -49,9 +49,9 @@ const Item: React.FC<ItemProps> = ({ state, onClick }) => {
   const ItemState: any = () => {
     if (state === 0) return <React.Fragment />;
     if (state === 1)
-      return <MdOutlineClose size={iconSize} color={colors.primary} />;
-    if (state === 2)
       return <MdOutlineCircle size={iconSize} color={colors.primary} />;
+    if (state === 2)
+      return <MdOutlineClose size={iconSize} color={colors.primary} />;
   };
 
   return (

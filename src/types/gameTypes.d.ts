@@ -1,4 +1,4 @@
-export type BoardType = Array<Array<number>>
+export type BoardType = Array<Array<number>>;
 
 export interface GameType {
   id: string;
@@ -10,3 +10,5 @@ export interface GameType {
   xscore: number;
   oscore: number;
 }
+
+export type PlayerType = 0 | 1;
